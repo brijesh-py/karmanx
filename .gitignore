@@ -3,3 +3,5 @@ node_modules
 *node_modules
 OAuth/oauth-frontend
 MS2 Uploading Files/ms2-cloudinary-frontend
+.gitignore
+*.venv
