@@ -5,3 +5,5 @@ OAuth/oauth-frontend
 MS2 Uploading Files/ms2-cloudinary-frontend
 .gitignore
 *.venv
+*.db
+*.sqlite

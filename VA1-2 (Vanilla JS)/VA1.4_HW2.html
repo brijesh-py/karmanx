@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA1.4HW2</title>
+  </head>
+  <body>
+    <div>
+      <label for="javascriptInput">What is javascript: </label>
+      <input type="text" id="javascriptInput" />
+      <button type="button" id="showJavascriptBtn">Display Answer</button>
+      <button type="button" id="countJavascriptWordsBtn">Count Words</button>
+      <p id="showJavascript"></p>
+    </div>
+
+    <div>
+      <label for="todoInput">List Todos: </label>
+      <input type="text" id="todoInput" />
+      <button type="button" id="showTodoBtn">Display Answer</button>
+      <button type="button" id="countTodoBtn">Count Todos</button>
+      <p id="showTodo"></p>
+    </div>
+
+    <div>
+      <label for="passwordInput">Enter password: </label>
+      <input type="text" id="passwordInput" />
+      <button type="button" id="showPasswordBtn">Display Password</button>
+      <button type="button" id="checkPasswordEligibilityBtn">
+        Check Password
+      </button>
+      <p id="showPassword"></p>
+    </div>
+    <script>
+      const javascriptInput = document.querySelector("#javascriptInput");
+      const showJavascriptBtn = document.querySelector("#showJavascriptBtn");
+      const countJavascriptWordsBtn = document.querySelector(
+        "#countJavascriptWordsBtn"
+      );
+      const showJavascript = document.querySelector("#showJavascript");
+      showJavascriptBtn.addEventListener("click", () => {
+        const answer = javascriptInput.value;
+        showJavascript.textContent = `Your answer: ${answer}`;
+      });
+      countJavascriptWordsBtn.addEventListener("click", () => {
+        const lengthOfWords = javascriptInput.value.split(" ").length;
+        if (lengthOfWords >= 2 && lengthOfWords <= 7) {
+          showJavascript.style.color = "green";
+        } else {
+          showJavascript.style.color = "red";
+          showJavascript.innerHTML += "<p>Word count exceeding</p>";
+        }
+      });
+
+      const todoInput = document.querySelector("#todoInput");
+      const showTodoBtn = document.querySelector("#showTodoBtn");
+      const countTodoBtn = document.querySelector("#countTodoBtn");
+      const showTodo = document.querySelector("#showTodo");
+      showTodoBtn.addEventListener("click", () => {
+        const todos = todoInput.value;
+        showTodo.textContent = `Your todos: ${todos}`;
+      });
+      countTodoBtn.addEventListener("click", () => {
+        const lengthOfTodos = todoInput.value.split(",").length;
+        showTodo.textContent = `Total number of Todos: ${lengthOfTodos}`;
+        showTodo.style.color = "red";
+
+        if (lengthOfTodos >= 1) {
+          showTodo.style.color = "green";
+        }
+      });
+
+      const passwordInput = document.querySelector("#passwordInput");
+      const showPasswordBtn = document.querySelector("#showPasswordBtn");
+      const checkPasswordEligibilityBtn = document.querySelector(
+        "#checkPasswordEligibilityBtn"
+      );
+      const showPassword = document.querySelector("#showPassword");
+      showPasswordBtn.addEventListener("click", () => {
+        const password = passwordInput.value;
+        showPassword.textContent = `Your password: ${password}`;
+      });
+      checkPasswordEligibilityBtn.addEventListener("click", () => {
+        const password = passwordInput.value;
+        showPassword.textContent =
+          "Invalid Password. Password should be more then 5 characters and must contains @ or ! or $ symbol.";
+        showPassword.style.color = "red";
+        if (
+          password.length > 5 &&
+          (password.includes("@") ||
+            password.includes("!") ||
+            password.includes("$"))
+        ) {
+          showPassword.textContent = "Password Accepted";
+          showPassword.style.color = "green";
+        }
+      });
+    </script>
+  </body>
+</html>

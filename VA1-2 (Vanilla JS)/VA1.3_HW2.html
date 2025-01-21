@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA1.3HW2</title>
+  </head>
+  <body>
+    <div>
+      <label for="bookReviewInput">Enter your book review: </label>
+      <textarea id="bookReviewInput" rows="5" cols="40"></textarea>
+      <button type="button" id="showBookReviewBtn">Display Book Review</button>
+      <p id="showBookReview"></p>
+    </div>
+
+    <div>
+      <label for="bioInput">Enter your personal bio: </label>
+      <textarea id="bioInput" rows="5" cols="40"></textarea>
+      <button type="button" id="showBioBtn">Display Styled Bio</button>
+      <div id="showBio"></div>
+    </div>
+
+    <div>
+      <label for="diaryInput">Enter your personal diary entry: </label>
+      <textarea id="diaryInput" rows="5" cols="40"></textarea>
+      <button type="button" id="showDiaryBtn">Display Bio</button>
+      <p id="showDiary"></p>
+    </div>
+
+    <script>
+      const bookReviewInput = document.getElementById("bookReviewInput");
+      const showBookReviewBtn = document.getElementById("showBookReviewBtn");
+      const showBookReview = document.getElementById("showBookReview");
+      showBookReviewBtn.addEventListener("click", () => {
+        const bookList = bookReviewInput.value;
+        showBookReview.innerHTML = `Your book review: ${bookList}`;
+      });
+
+      const bioInput = document.getElementById("bioInput");
+      const showBioBtn = document.getElementById("showBioBtn");
+      const showBio = document.getElementById("showBio");
+      showBioBtn.addEventListener("click", () => {
+        const bio = bioInput.value;
+        showBio.innerHTML = `<em>${bio}</em>`;
+      });
+
+      const diaryInput = document.getElementById("diaryInput");
+      const showDiaryBtn = document.getElementById("showDiaryBtn");
+      const showDiary = document.getElementById("showDiary");
+      showDiaryBtn.addEventListener("click", () => {
+        const diary = diaryInput.value;
+        const currentTime = new Date().toLocaleString();
+        showDiary.innerHTML = `
+        <strong>${currentTime}</strong>
+        <p>${diary}</p>
+        `;
+      });
+    </script>
+  </body>
+</html>

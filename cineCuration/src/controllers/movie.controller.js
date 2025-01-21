@@ -133,14 +133,14 @@ class MovieController {
   async sortedMoviesByRatingOrYear(req, res) {
     const { sortBy, order, list } = req.query;
     errorHandler(res, async () => {
-      const movies = await MovieService.sort({ rating: sortBy }, order);
+      const movies = await MovieService.sort(["rating"]);
       response({ res, movies });
     });
   }
 
-  async getTopMovies() {
+  async getTopMovies(req, res) {
     errorHandler(res, async () => {
-      const movies = await MovieService.top({ rating: "rating" }, 5);
+      const movies = await MovieService.top(["rating"]);
       response({ res, movies, message: "Top 5 Movies." });
     });
   }

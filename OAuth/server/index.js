@@ -61,17 +61,17 @@ app.get("/user/profile/github", validateToken, async (req, res) => {
 });
 
 app.get("/auth/google", (req, res) => {
-  const googleAuthURL = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.G_CLIENT_ID}&rediect_uri=http://localhost:${PORT}/auth/google/callback&response_type=code&sope=profile email`;
+  const googleAuthURL = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.G_CLIENT_ID}&redirect_uri=http://localhost:${PORT}/auth/google/callback&response_type=code&scope=profile email`;
   res.redirect(googleAuthURL);
 });
 
-app.get("/auth/google/callback", (req, res) => {
+app.get("/auth/google/callback", async(req, res) => {
   const { code } = req.query;
   if (!code) {
     return res.status(400).send("Code not found");
   }
   try {
-    const response = axios.post(
+    const response = await axios.post(
       "https://oauth2.googleapis.com/token",
       {
         client_id: process.env.G_CLIENT_ID,
@@ -86,7 +86,7 @@ app.get("/auth/google/callback", (req, res) => {
         },
       }
     );
-
+console.log(response)
     const access_token = response.data.access_token;
     setCookie(res, access_token);
     return res.redirect(`${process.env.FRONTEND_URL}/v2/profile/google`);

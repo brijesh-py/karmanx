@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA2.3_HW1</title>
+  </head>
+  <body>
+    <div>
+      <label for="movieGenreDropdown">Choose a movie genre: </label>
+      <select id="movieGenreDropdown">
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+      </select>
+      <p id="showMovieGenre"></p>
+    </div>
+
+    <div>
+      <label for="weatherConditionDropdown">Select a weather condition: </label>
+      <select id="weatherConditionDropdown">
+        <option value="Sunny">Sunny</option>
+        <option value="Rainy">Rainy</option>
+        <option value="Snowy">Snowy</option>
+      </select>
+      <p id="showWeatherCondition"></p>
+    </div>
+
+    <div>
+      <label for="languageDropdown">Select a language: </label>
+      <select id="languageDropdown">
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+      </select>
+      <button type="button" id="showLanguageBtn">Display Greeting</button>
+      <p id="showLanguage"></p>
+    </div>
+
+    <div>
+      <label for="musicalInstrumentDropdown"
+        >Choose a musical instrument:
+      </label>
+      <select id="musicalInstrumentDropdown">
+        <option value="Piano">Piano</option>
+        <option value="Guitar">Guitar</option>
+        <option value="Violin">Violin</option>
+      </select>
+      <button type="button" id="showMusicalInstrumentBtn">
+        Display Fun Fact
+      </button>
+      <p id="showMusicalInstrument"></p>
+    </div>
+
+    <div>
+      <label for="petDropdown">Select a pet: </label>
+      <select id="petDropdown">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Fish">Fish</option>
+      </select>
+      <button type="button" id="showPetBtn">Display Pet Description</button>
+      <p id="showPet"></p>
+    </div>
+
+    <script>
+      // Program 1:
+      const movieGenreDropdown = document.getElementById("movieGenreDropdown");
+      const showMovieGenre = document.getElementById("showMovieGenre");
+      movieGenreDropdown.addEventListener("change", () => {
+        const selectElement = movieGenreDropdown.value;
+        const movieGenres = {
+          Action: "Back in Action",
+          Comedy: "Dhamaal",
+          Drama: "Lucky Baskhar",
+        };
+        showMovieGenre.textContent = `Recommendation ${selectElement} Movie: ${movieGenres[selectElement]}`;
+      });
+
+      // Program 2:
+      const weatherConditionDropdown = document.getElementById(
+        "weatherConditionDropdown"
+      );
+      const showWeatherCondition = document.getElementById(
+        "showWeatherCondition"
+      );
+      weatherConditionDropdown.addEventListener("change", () => {
+        const selectElement = weatherConditionDropdown.value;
+        const dropdownItems = {
+          Sunny: "Outdoor Activity suggestion: Picnic in the Park.",
+          Rainy:
+            "Rain is water droplets that have condensed from atmospheric water vapor and then fall under gravity. ",
+          Snowy: "Snow is precipitation that forms when water vapor freezes. ",
+        };
+
+        showWeatherCondition.textContent = `${dropdownItems[selectElement]}`;
+      });
+
+      // Program 3:
+      const languageDropdown = document.getElementById("languageDropdown");
+      const showLanguageBtn = document.getElementById("showLanguageBtn");
+      const showLanguage = document.getElementById("showLanguage");
+
+      languageDropdown.addEventListener("change", () => {
+        showLanguageBtn.addEventListener("click", () => {
+          const selectElement = languageDropdown.value;
+          const dropdownItems = {
+            English: "Hello!",
+            French: "Bonjour!",
+            Spanish: "Hola!",
+          };
+          showLanguage.textContent = `Common Greeting: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 4:
+      const musicalInstrumentDropdown = document.getElementById(
+        "musicalInstrumentDropdown"
+      );
+      const showMusicalInstrumentBtn = document.getElementById(
+        "showMusicalInstrumentBtn"
+      );
+      const showMusicalInstrument = document.getElementById(
+        "showMusicalInstrument"
+      );
+
+      musicalInstrumentDropdown.addEventListener("change", () => {
+        showMusicalInstrumentBtn.addEventListener("click", () => {
+          const selectElement = musicalInstrumentDropdown.value;
+          const dropdownItems = {
+            Piano:
+              "A large musical instrument that you play by pressing down black and white keys.",
+            Guitar:
+              "A type of musical instrument with strings that you play with your fingers or with a piece of plastic (a plectrum).",
+            Violin:
+              "A musical instrument with strings, that you hold under your chin and play with a long thin object (a bow)",
+          };
+          showMusicalInstrument.textContent = `Func Fact: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 5:
+      const petDropdown = document.getElementById("petDropdown");
+      const showPetBtn = document.getElementById("showPetBtn");
+      const showPet = document.getElementById("showPet");
+
+      petDropdown.addEventListener("change", () => {
+        showPetBtn.addEventListener("click", () => {
+          const selectElement = petDropdown.value;
+          const dropdownItems = {
+            Dog: "The dog is a domesticated descendant of the wolf.",
+            Cat: "Cats are very beautiful and friendly animals.",
+            Fish: "Fish (in general) is a cold-blooded aquatic organism that breathes with gills and swims with fins.",
+          };
+          showPet.textContent = `Pet Description: ${dropdownItems[selectElement]}`;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA2.2_HW1</title>
+  </head>
+  <body>
+    <div>
+      <label>Program 1: Select a Genre: </label>
+      <input type="radio" name="genres" value="Pop" /> Pop
+      <input type="radio" name="genres" value="Rock" /> Rock
+      <input type="radio" name="genres" value="Hip-Hop" /> Hip-Hop
+      <p id="showGenre"></p>
+    </div>
+
+    <div>
+      <label>Program 2: Choose a language preference: </label>
+      <input type="radio" name="languages" value="English" /> English
+      <input type="radio" name="languages" value="Spanish" /> Spanish
+      <input type="radio" name="languages" value="French" /> French
+      <p id="showLanguage"></p>
+    </div>
+
+    <div>
+      <label>Program 3: Select a job role: </label>
+      <input type="radio" name="jobRoles" value="Developer" /> Developer
+      <input type="radio" name="jobRoles" value="Designer" /> Designer
+      <input type="radio" name="jobRoles" value="Manager" /> Manager
+      <button type="button" id="showJobRoleBtn">
+        Display Selected Job Role
+      </button>
+      <p id="showJobRole"></p>
+    </div>
+
+    <div>
+      <label>Program 4: Choose a favorite hobby: </label>
+      <input type="radio" name="hobbies" value="Reading" /> Reading
+      <input type="radio" name="hobbies" value="Gardening" /> Gardening
+      <input type="radio" name="hobbies" value="Sports" /> Sports
+      <button type="button" id="showHobbyBtn">Display Selected Hobby</button>
+      <p id="showHobby"></p>
+    </div>
+
+    <div>
+      <label>Program 5: Select a clothing style: </label>
+      <input type="radio" name="clothingStyles" value="Casual" /> Casual
+      <input type="radio" name="clothingStyles" value="Formal" /> Formal
+      <input type="radio" name="clothingStyles" value="Sporty" /> Sporty
+      <button type="button" id="showClothingStyleBtn">
+        Display Selected Style
+      </button>
+      <p id="showClothingStyle"></p>
+    </div>
+
+    <script>
+      // Get Current Selected Element
+      const getSelectedElement = (elements) => {
+        let selectedItem = "";
+        elements?.forEach((element) => {
+          if (element?.checked) selectedItem = element.value;
+        });
+        return selectedItem;
+      };
+
+      // Program 1:
+      const genres = document.getElementsByName("genres");
+      const showGenre = document.getElementById("showGenre");
+      genres?.forEach((element) => {
+        element.addEventListener("change", () => {
+          if (element.checked) {
+            showGenre.textContent = `Selected Genre: ${element.value}`;
+          }
+        });
+      });
+
+      // Program 2:
+      const languages = document.getElementsByName("languages");
+      const showLanguage = document.getElementById("showLanguage");
+      languages?.forEach((element) => {
+        element.addEventListener("change", () => {
+          if (element.checked) {
+            showLanguage.textContent = `Selected Language: ${element.value}`;
+          }
+        });
+      });
+
+      // Program 3:
+      const jobRoles = document.getElementsByName("jobRoles");
+      const showJobRoleBtn = document.getElementById("showJobRoleBtn");
+      const showJobRole = document.getElementById("showJobRole");
+      showJobRoleBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(jobRoles);
+        showJobRole.textContent = `Selected Job Role: ${selectedElement}`;
+      });
+
+      // Program 4:
+      const hobbies = document.getElementsByName("hobbies");
+      const showHobbyBtn = document.getElementById("showHobbyBtn");
+      const showHobby = document.getElementById("showHobby");
+      showHobbyBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(hobbies);
+        showHobby.textContent = `Selected Hobby: ${selectedElement}`;
+      });
+
+      // Program 5:
+      const clothingStyles = document.getElementsByName("clothingStyles");
+      const showClothingStyleBtn = document.getElementById(
+        "showClothingStyleBtn"
+      );
+      const showClothingStyle = document.getElementById("showClothingStyle");
+      showClothingStyleBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(clothingStyles);
+        showClothingStyle.textContent = `Selected Clothing Style: ${selectedElement}`;
+      });
+    </script>
+  </body>
+</html>

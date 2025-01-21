@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA1.4HW1</title>
+  </head>
+  <body>
+    <div>
+      <label for="ageInput">Enter you age: </label>
+      <input type="number" id="ageInput" />
+      <button type="button" id="showAgeBtn">Display Age</button>
+      <button type="button" id="checkAgeEligibilityBtn">
+        Check Eligibility
+      </button>
+      <p id="showAge"></p>
+    </div>
+
+    <div>
+      <label for="studentInput">Are you a student? </label>
+      <input type="text" id="studentInput" />
+      <button type="button" id="showStudentBtn">Display Answer</button>
+      <button type="button" id="checkStudentEligibilityBtn">
+        Check Eligibility
+      </button>
+      <p id="showStudent"></p>
+    </div>
+
+    <div>
+      <label for="passwordInput">Enter password: </label>
+      <input type="text" id="passwordInput" />
+      <button type="button" id="showPasswordBtn">Display Password</button>
+      <button type="button" id="checkPasswordEligibilityBtn">
+        Check Password
+      </button>
+      <p id="showPassword"></p>
+    </div>
+    <script>
+      const ageInput = document.querySelector("#ageInput");
+      const showAgeBtn = document.querySelector("#showAgeBtn");
+      const checkAgeEligibilityBtn = document.querySelector(
+        "#checkAgeEligibilityBtn"
+      );
+      const showAge = document.querySelector("#showAge");
+      showAgeBtn.addEventListener("click", () => {
+        const age = Number(ageInput.value);
+        showAge.textContent = `Your age: ${age}`;
+      });
+      checkAgeEligibilityBtn.addEventListener("click", () => {
+        const age = Number(ageInput.value);
+        showAge.style.color = "red";
+        if (age >= 18) {
+          showAge.style.color = "green";
+        }
+      });
+
+      const studentInput = document.querySelector("#studentInput");
+      const showStudentBtn = document.querySelector("#showStudentBtn");
+      const checkStudentEligibilityBtn = document.querySelector(
+        "#checkStudentEligibilityBtn"
+      );
+      const showStudent = document.querySelector("#showStudent");
+      showStudentBtn.addEventListener("click", () => {
+        const answer = studentInput.value;
+        showStudent.textContent = `Your answer: ${answer}`;
+      });
+      checkStudentEligibilityBtn.addEventListener("click", () => {
+        const answer = studentInput.value;
+        showStudent.textContent = "You are not eligible";
+        showStudent.style.color = "red";
+
+        if (answer.toLowerCase() == "yes") {
+          showStudent.textContent = "You are eligible";
+          showStudent.style.color = "green";
+        }
+      });
+
+      const passwordInput = document.querySelector("#passwordInput");
+      const showPasswordBtn = document.querySelector("#showPasswordBtn");
+      const checkPasswordEligibilityBtn = document.querySelector(
+        "#checkPasswordEligibilityBtn"
+      );
+      const showPassword = document.querySelector("#showPassword");
+      showPasswordBtn.addEventListener("click", () => {
+        const password = passwordInput.value;
+        showPassword.textContent = `Your password: ${password}`;
+      });
+      checkPasswordEligibilityBtn.addEventListener("click", () => {
+        const password = passwordInput.value;
+        showPassword.textContent = "Invalid Password";
+        showPassword.style.color = "red";
+        if (password.includes("@")) {
+        showPassword.textContent = "Password Accepted";
+          showPassword.style.color = "green";
+        }
+      });
+    </script>
+  </body>
+</html>

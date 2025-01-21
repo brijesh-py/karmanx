@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA2.3_HW2</title>
+  </head>
+  <body>
+    <div>
+      <label for="seasonDropDown">Choose a season: </label>
+      <select id="seasonDropDown">
+        <option value="Spring">Spring</option>
+        <option value="Summer">Summer</option>
+        <option value="Fall">Fall</option>
+        <option value="Winter">Winter</option>
+      </select>
+      <button type="button" id="showSeasonBtn">Display Typical Weather</button>
+      <p id="showSeason"></p>
+    </div>
+
+    <div>
+      <label for="movieGenreDropdown">Choose a movie genre: </label>
+      <select id="movieGenreDropdown">
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+      </select>
+      <button type="button" id="showMovieGenreBtn">
+        Display Movie Recommendation
+      </button>
+      <p id="showMovieGenre"></p>
+    </div>
+
+    <div>
+      <label for="planetDropdown">Choose a planet: </label>
+      <select id="planetDropdown">
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+      </select>
+      <button type="button" id="showLanguageBtn">Display Greeting</button>
+      <p id="showLanguage"></p>
+    </div>
+
+    <div>
+      <label for="musicalInstrumentDropdown"
+        >Choose a musical instrument:
+      </label>
+      <select id="musicalInstrumentDropdown">
+        <option value="Piano">Piano</option>
+        <option value="Guitar">Guitar</option>
+        <option value="Violin">Violin</option>
+      </select>
+      <button type="button" id="showMusicalInstrumentBtn">
+        Display Fun Fact
+      </button>
+      <p id="showMusicalInstrument"></p>
+    </div>
+
+    <div>
+      <label for="petDropdown">Select a pet: </label>
+      <select id="petDropdown">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Fish">Fish</option>
+      </select>
+      <button type="button" id="showPetBtn">Display Pet Description</button>
+      <p id="showPet"></p>
+    </div>
+
+    <script>
+      // Program 1:
+      const seasonDropDown = document.getElementById("seasonDropDown");
+      const showSeason = document.getElementById("showSeason");
+      const showSeasonBtn = document.getElementById("showSeasonBtn");
+      seasonDropDown.addEventListener("change", () => {
+        showSeasonBtn.addEventListener("click", () => {
+          const selectElement = seasonDropDown.value;
+          const dropdownItems = {
+            Spring: "Spring is the season after winter and before summer.",
+            Summer:
+              "Summer or summertime is the hottest and brightest of the four temperate seasons, occurring after spring and before autumn.",
+            Fall: "The weather gets colder and more windy. ",
+            Winter:
+              "Winter is the coldest and darkest season of the year in polar and temperate climates.",
+          };
+          showSeason.textContent = `Typical Weather: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 2:
+      const movieGenreDropdown = document.getElementById("movieGenreDropdown");
+      const showMovieGenreBtn = document.getElementById("showMovieGenreBtn");
+      const showMovieGenre = document.getElementById("showMovieGenre");
+      movieGenreDropdown.addEventListener("change", () => {
+        showMovieGenreBtn.addEventListener("click", () => {
+          const selectElement = movieGenreDropdown.value;
+          const dropdownItems = {
+            Action: "Back in Action",
+            Comedy: "Dhamaal",
+            Drama: "Lucky Baskhar",
+          };
+          showMovieGenre.textContent = `Movie Recommendation: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 3:
+      const planetDropdown = document.getElementById("planetDropdown");
+      const showLanguageBtn = document.getElementById("showLanguageBtn");
+      const showLanguage = document.getElementById("showLanguage");
+
+      planetDropdown.addEventListener("change", () => {
+        showLanguageBtn.addEventListener("click", () => {
+          const selectElement = planetDropdown.value;
+          const dropdownItems = {
+            Mars: "Mars is the fourth planet from the Sun. ",
+            Earth:
+              "Earth is the third planet from the Sun and the only astronomical object known to harbor life.",
+            Jupiter: "Jupiter is the biggest planet in our solar system.",
+          };
+          showLanguage.textContent = `Planet Fact: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 4:
+      const musicalInstrumentDropdown = document.getElementById(
+        "musicalInstrumentDropdown"
+      );
+      const showMusicalInstrumentBtn = document.getElementById(
+        "showMusicalInstrumentBtn"
+      );
+      const showMusicalInstrument = document.getElementById(
+        "showMusicalInstrument"
+      );
+
+      musicalInstrumentDropdown.addEventListener("change", () => {
+        showMusicalInstrumentBtn.addEventListener("click", () => {
+          const selectElement = musicalInstrumentDropdown.value;
+          const dropdownItems = {
+            Piano:
+              "A large musical instrument that you play by pressing down black and white keys.",
+            Guitar:
+              "A type of musical instrument with strings that you play with your fingers or with a piece of plastic (a plectrum).",
+            Violin:
+              "A musical instrument with strings, that you hold under your chin and play with a long thin object (a bow)",
+          };
+          showMusicalInstrument.textContent = `Func Fact: ${dropdownItems[selectElement]}`;
+        });
+      });
+
+      // Program 5:
+      const petDropdown = document.getElementById("petDropdown");
+      const showPetBtn = document.getElementById("showPetBtn");
+      const showPet = document.getElementById("showPet");
+
+      petDropdown.addEventListener("change", () => {
+        showPetBtn.addEventListener("click", () => {
+          const selectElement = petDropdown.value;
+          const dropdownItems = {
+            Dog: "The dog is a domesticated descendant of the wolf.",
+            Cat: "Cats are very beautiful and friendly animals.",
+            Fish: "Fish (in general) is a cold-blooded aquatic organism that breathes with gills and swims with fins.",
+          };
+          showPet.textContent = `Pet Description: ${dropdownItems[selectElement]}`;
+        });
+      });
+    </script>
+  </body>
+</html>

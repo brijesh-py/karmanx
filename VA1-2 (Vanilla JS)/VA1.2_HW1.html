@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA1.2_HW1</title>
+  </head>
+  <body>
+    <div>
+      <label for="ageInput">Enter your Age:</label>
+      <input type="number" id="ageInput" />
+      <button type="button" id="showAgeBtn">Validate Age</button>
+      <p id="showAge"></p>
+    </div>
+
+    <div>
+      <label for="animalNameInput">Enter your favorite Animal:</label>
+      <input type="text" id="animalNameInput" />
+      <button type="button" id="showAnimalNameBtn">Display Animal</button>
+      <p id="showAnimalName"></p>
+    </div>
+
+    <div>
+      <label for="colorInput">Enter your favorite Color:</label>
+      <input type="text" id="colorInput" />
+      <button type="button" id="showColorBtn">Display Color</button>
+      <p id="showColor"></p>
+    </div>
+
+    <div>
+      <label for="yesOrNoInput">Yes/No Question: </label>
+      <input type="text" id="yesOrNoInput" />
+      <button type="button" id="showYesOrNoBtn">Display Message</button>
+      <p id="showYesOrNo"></p>
+    </div>
+
+    <div>
+      <label for="evenOrOddNumberInput">Enter a Number: </label>
+      <input type="text" id="evenOrOddNumberInput" />
+      <button type="button" id="showEvenOrOddNumberBtn">Check Number</button>
+      <p id="showEvenOrOddNumber"></p>
+    </div>
+    <script>
+      // Age validation DOM elements
+      const ageInput = document.getElementById("ageInput");
+      const showAgeBtn = document.getElementById("showAgeBtn");
+      const showAge = document.getElementById("showAge");
+      showAgeBtn.addEventListener("click", () => {
+        const age = ageInput.value;
+        // Default message
+        showAge.innerText = "Invalid Age entered! please enter an age between 108 and 100.";
+        if (age <= 100 && age >= 18) {
+          showAge.innerText = "Valid Age entered!";
+        }
+      });
+
+      // show animal name DOM elements
+      const animalNameInput = document.getElementById("animalNameInput");
+      const showAnimalNameBtn = document.getElementById("showAnimalNameBtn");
+      const showAnimalName = document.getElementById("showAnimalName");
+      showAnimalNameBtn.addEventListener("click", () => {
+        const animalName = animalNameInput.value;
+        showAnimalName.innerText = `Animal Name: ${animalName}`;
+      });
+
+      // show favorite color DOM elements
+      const colorInput = document.getElementById("colorInput");
+      const showColorBtn = document.getElementById("showColorBtn");
+      const showColor = document.getElementById("showColor");
+      showColorBtn.addEventListener("click", () => {
+        const color = colorInput.value;
+        showColor.innerText = `Color: ${color}`;
+        showColor.style.color = color;
+      });
+
+      //   show yes/no question DOM elements
+      const yesOrNoInput = document.getElementById("yesOrNoInput");
+      const showYesOrNoBtn = document.getElementById("showYesOrNoBtn");
+      const showYesOrNo = document.getElementById("showYesOrNo");
+      showYesOrNoBtn.addEventListener("click", () => {
+        const yesOrNo = yesOrNoInput.value;
+        showYesOrNo.innerText = `Yes said '${yesOrNo}'`;
+        if (yesOrNo.toLowerCase() == "yes") {
+          showYesOrNo.innerText = `You said 'Yes'`;
+        }
+      });
+
+    //  check number is even or odd DOM Elements
+      const evenOrOddNumberInput = document.getElementById(
+        "evenOrOddNumberInput"
+      );
+      const showEvenOrOddNumberBtn = document.getElementById(
+        "showEvenOrOddNumberBtn"
+      );
+      const showEvenOrOddNumber = document.getElementById(
+        "showEvenOrOddNumber"
+      );
+      showEvenOrOddNumberBtn.addEventListener("click", () => {
+        const number = Number(evenOrOddNumberInput.value);
+        showEvenOrOddNumber.innerText = `${number} is Odd.`;
+        if (number % 2 == 0) {
+          showEvenOrOddNumber.innerText = `${number} is Even.`;
+        }
+      });
+    </script>
+  </body>
+</html>

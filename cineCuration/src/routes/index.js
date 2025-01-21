@@ -15,6 +15,10 @@ router.get(
   "/movies/searchByGenreAndActor",
   MovieController.searchMovieByGenreAndActor
 );
+router.get(
+  "/movies/sort",
+  MovieController.sortedMoviesByRatingOrYear
+);
 router.get("/movies/top5", MovieController.getTopMovies);
 
 module.exports = router;

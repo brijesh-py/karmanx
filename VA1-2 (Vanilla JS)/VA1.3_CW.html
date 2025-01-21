@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA1.3_CW</title>
+  </head>
+  <body>
+    <div>
+      <label for="feedbackInput">Give your Feedback: </label>
+      <textarea id="feedbackInput" cols="40" rows="5"></textarea>
+      <button id="showFeedbackBtn">Submit</button>
+      <p id="showFeedbackMessage"></p>
+    </div>
+
+    <div>
+      <label for="addressInput">Enter your Address: </label>
+      <textarea id="addressInput" cols="40" rows="5"></textarea>
+      <button id="showAddressBtn">Display Address</button>
+      <p id="showAddress"></p>
+    </div>
+
+    <div>
+      <label for="descriptionInput">Enter a Description: </label>
+      <textarea id="descriptionInput" cols="40" rows="5"></textarea>
+      <button id="showDescriptionBtn">Display Description</button>
+      <p id="showDescription"></p>
+    </div>
+
+    <script>
+      const feedbackInput = document.getElementById("feedbackInput");
+      const showFeedbackBtn = document.getElementById("showFeedbackBtn");
+      const showFeedbackMessage = document.getElementById(
+        "showFeedbackMessage"
+      );
+      showFeedbackBtn.addEventListener("click", () => {
+        const message = feedbackInput.value;
+        showFeedbackMessage.textContent = `Feedback: ${message}`;
+      });
+
+
+      const addressInput = document.getElementById("addressInput");
+      const showAddressBtn = document.getElementById("showAddressBtn");
+      const showAddress = document.getElementById("showAddress");
+      showAddressBtn.addEventListener("click", () => {
+        const address = addressInput.value;
+        showAddress.textContent = `Your Address: ${address}`;
+      });
+
+      const descriptionInput = document.getElementById("descriptionInput");
+      const showDescriptionBtn = document.getElementById("showDescriptionBtn");
+      const showDescription = document.getElementById("showDescription");
+      showDescriptionBtn.addEventListener("click", () => {
+        const description = descriptionInput.value;
+        showDescription.textContent = `Description: ${description}`;
+      });
+    </script>
+  </body>
+</html>

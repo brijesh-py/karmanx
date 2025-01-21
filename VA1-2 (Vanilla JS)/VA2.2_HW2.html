@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA2.2_HW2</title>
+  </head>
+  <body>
+    <div>
+      <label>Program 1: Select a Mood: </label>
+      <input type="radio" name="moods" value="Happy" /> Happy
+      <input type="radio" name="moods" value="Sad" /> Sad
+      <input type="radio" name="moods" value="Excited" /> Excited
+      <p id="showMood"></p>
+    </div>
+
+    <div>
+      <label>Program 2: Choose a book genre: </label>
+      <input type="radio" name="bookGenres" value="Mystery" /> Mystery
+      <input type="radio" name="bookGenres" value="Romance" /> Romance
+      <input type="radio" name="bookGenres" value="Science Fiction" /> Science
+      Fiction
+      <button type="button" id="showBookGenreBtn">
+        Display Book Recommendation
+      </button>
+      <p id="showBookGenre"></p>
+    </div>
+
+    <div>
+      <label>Program 3: Select a clothing style: </label>
+      <input type="radio" name="clothingStyles" value="Casual" /> Casual
+      <input type="radio" name="clothingStyles" value="Formal" /> Formal
+      <input type="radio" name="clothingStyles" value="Sporty" /> Sporty
+      <button type="button" id="showClothingStyleBtn">
+        Display Selected Style
+      </button>
+      <p id="showClothingStyle"></p>
+    </div>
+
+    <div>
+      <label>Program 4: Choose a weather preference: </label>
+      <input type="radio" name="weatherPreferences" value="Sunny" /> Sunny
+      <input type="radio" name="weatherPreferences" value="Rainy" /> Rainy
+      <input type="radio" name="weatherPreferences" value="Snowy" /> Snowy
+      <button type="button" id="showWeatherPreferenceBtn">
+        Display Selected Weather Preference
+      </button>
+      <p id="showWeatherPreference"></p>
+    </div>
+
+    <div>
+      <label>Program 5: Select a travel Mode: </label>
+      <input type="radio" name="travelModes" value="Car" /> Car
+      <input type="radio" name="travelModes" value="Train" /> Train
+      <input type="radio" name="travelModes" value="Bus" /> Bus
+      <p id="showTravelMode"></p>
+    </div>
+
+    <script>
+      // Get Current Selected Element
+      const getSelectedElement = (elements) => {
+        let selectedItem = "";
+        elements?.forEach((element) => {
+          if (element?.checked) selectedItem = element.value;
+        });
+        return selectedItem;
+      };
+
+      // Program 1:
+      const moods = document.getElementsByName("moods");
+      const showMood = document.getElementById("showMood");
+      moods?.forEach((element) => {
+        element.addEventListener("change", () => {
+          if (element.checked) {
+            showMood.textContent = `Selected Mood: ${element.value}`;
+          }
+        });
+      });
+
+      // Program 2:
+      const bookGenres = document.getElementsByName("bookGenres");
+      const showBookGenreBtn = document.getElementById("showBookGenreBtn");
+      const showBookGenre = document.getElementById("showBookGenre");
+      showBookGenreBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(bookGenres);
+        showBookGenre.textContent = `Selected Job Role: ${selectedElement}`;
+      });
+
+      // Program 3:
+      const clothingStyles = document.getElementsByName("clothingStyles");
+      const showClothingStyleBtn = document.getElementById(
+        "showClothingStyleBtn"
+      );
+      const showClothingStyle = document.getElementById("showClothingStyle");
+      showClothingStyleBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(clothingStyles);
+        showClothingStyle.textContent = `Selected Clothing Style: ${selectedElement}`;
+      });
+
+      // Program 4:
+      const weatherPreferences =
+        document.getElementsByName("weatherPreferences");
+      const showWeatherPreferenceBtn = document.getElementById(
+        "showWeatherPreferenceBtn"
+      );
+      const showWeatherPreference = document.getElementById(
+        "showWeatherPreference"
+      );
+      showWeatherPreferenceBtn.addEventListener("click", () => {
+        const selectedElement = getSelectedElement(weatherPreferences);
+        showWeatherPreference.textContent = `Selected Hobby: ${selectedElement}`;
+      });
+
+      // Program 5:
+      const travelModes = document.getElementsByName("travelModes");
+      const showTravelMode = document.getElementById("showTravelMode");
+      travelModes?.forEach((element) => {
+        element.addEventListener("change", () => {
+          if (element.checked) {
+            showTravelMode.textContent = `Selected Travel Mode: ${element.value}`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

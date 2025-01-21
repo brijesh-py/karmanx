@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA2.1_HW1</title>
+  </head>
+  <body>
+    <div>
+      <label>Program 1: Select multiple sports:</label>
+      <input type="checkbox" id="soccerSport" value="Soccer" class="sports" />
+      <label for="soccerSport">Soccer</label>
+      <input
+        type="checkbox"
+        id="basketballSport"
+        value="Basketball"
+        class="sports"
+      />
+      <label for="basketballSport">Basketball</label>
+      <input type="checkbox" id="tennisSport" value="Tennis" class="sports" />
+      <label for="tennisSport">Tennis</label>
+      <button type="button" id="showSelectSportsBtn">
+        Display Selected Sports
+      </button>
+      <p id="showSelectSports"></p>
+    </div>
+
+    <div>
+      <label>Program 2: Choose multiple vacation destinations:</label>
+      <input
+        type="checkbox"
+        id="beachDestination"
+        value="Beach"
+        class="destinations"
+      />
+      <label for="beachDestination">Beach</label>
+      <input
+        type="checkbox"
+        id="mountainsDestination"
+        value="Mountains"
+        class="destinations"
+      />
+      <label for="mountainsDestination">Mountains</label>
+      <input
+        type="checkbox"
+        id="cityDestination"
+        value="City"
+        class="destinations"
+      />
+      <label for="cityDestination">City</label>
+      <button type="button" id="showSelectedDestinationsBtn">
+        Display Selected Destinations
+      </button>
+      <p id="showSelectedDestinations"></p>
+    </div>
+
+    <div>
+      <label>Program 3: Select multiple movie genres: </label>
+      <input type="checkbox" id="actionGenre" value="Action" class="genres" />
+      <label for="actionGenre">Action</label>
+      <input type="checkbox" id="comedyGenre" value="Comedy" class="genres" />
+      <label for="comedyGenre">Comedy</label>
+      <input type="checkbox" id="dramaGenre" value="Drama" class="genres" />
+      <label for="dramaGenre">Drama</label>
+      <button type="button" id="showSelectedGenreBtn">
+        Display Selected Genres
+      </button>
+      <p id="showSelectedGenre"></p>
+    </div>
+
+    <div>
+      <label>Program 4: Choose multiple items from a restaurant menu: </label>
+      <input type="checkbox" id="burgerItem" value="Burger" class="items" />
+      <label for="burgerItem">Burger</label>
+      <input type="checkbox" id="comdeyItem" value="Pizza" class="items" />
+      <label for="comdeyItem">Pizza</label>
+      <input type="checkbox" id="saladItem" value="Salad" class="items" />
+      <label for="saladItem">Salad</label>
+      <button type="button" id="showSelectedItemsBtn">
+        Display Selected Items
+      </button>
+      <p id="showSelectedItems"></p>
+    </div>
+
+    <div>
+      <label>Program 5: Select multiple fruits: </label>
+      <input type="checkbox" id="appleFruit" value="Apple" class="fruits" />
+      <label for="appleFruit">Apple</label>
+      <input type="checkbox" id="bananaFruit" value="Banana" class="fruits" />
+      <label for="bananaFruit">Banana</label>
+      <input type="checkbox" id="orangeFruit" value="Orange" class="fruits" />
+      <label for="orangeFruit">Orange</label>
+      <button type="button" id="showSelectedFruitsBtn">
+        Display Selected Fruits
+      </button>
+      <p id="showSelectedFruits"></p>
+    </div>
+
+    <script>
+      // Get Selected Items
+      const getSelectedItem = (elements) => {
+        const selectedItems = [];
+        elements.forEach((ele) => {
+          if (ele.checked) selectedItems.push(ele.value);
+        });
+        return selectedItems.join(", ");
+      };
+
+      const sports = document.querySelectorAll(".sports");
+      const showSelectSportsBtn = document.getElementById(
+        "showSelectSportsBtn"
+      );
+      const showSelectSports = document.getElementById("showSelectSports");
+      showSelectSportsBtn.addEventListener("click", () => {
+        const selectedSports = getSelectedItem(sports);
+        showSelectSports.innerHTML = `<strong>Selected sports:</strong> ${selectedSports}`;
+      });
+
+      const destinations = document.querySelectorAll(".destinations");
+      const showSelectedDestinationsBtn = document.getElementById(
+        "showSelectedDestinationsBtn"
+      );
+      const showSelectedDestinations = document.getElementById(
+        "showSelectedDestinations"
+      );
+      showSelectedDestinationsBtn.addEventListener("click", () => {
+        const selectedDestinations = getSelectedItem(destinations);
+        showSelectedDestinations.innerHTML = `<strong>Selected Destinations:</strong> ${selectedDestinations}`;
+      });
+
+      const genres = document.querySelectorAll(".genres");
+      const showSelectedGenreBtn = document.getElementById(
+        "showSelectedGenreBtn"
+      );
+      const showSelectedGenre = document.getElementById("showSelectedGenre");
+      showSelectedGenreBtn.addEventListener("click", () => {
+        const selectedGenre = getSelectedItem(genres);
+        showSelectedGenre.innerHTML = `<strong>Selected Genres:</strong> ${selectedGenre}`;
+      });
+
+      const items = document.querySelectorAll(".items");
+      const showSelectedItemsBtn = document.getElementById(
+        "showSelectedItemsBtn"
+      );
+      const showSelectedItems = document.getElementById("showSelectedItems");
+      showSelectedItemsBtn.addEventListener("click", () => {
+        const selectedItems = getSelectedItem(items);
+        showSelectedItems.innerHTML = `<strong>Selected Items:</strong> ${selectedItems}`;
+      });
+
+      const fruits = document.querySelectorAll(".fruits");
+      const showSelectedFruitsBtn = document.getElementById(
+        "showSelectedFruitsBtn"
+      );
+      const showSelectedFruits = document.getElementById("showSelectedFruits");
+      showSelectedFruitsBtn.addEventListener("click", () => {
+        const selectedFruits = getSelectedItem(fruits);
+        showSelectedFruits.innerHTML = `<strong>Selected Fruits:</strong> ${selectedFruits}`;
+      });
+    </script>
+  </body>
+</html>

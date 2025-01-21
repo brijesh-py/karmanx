@@ -14,9 +14,8 @@ class MovieService {
       vote_average: rating,
       overview: description,
     } = await getMovieByTMDBId(tmdbId);
-    const data = await getCastDetailsByTMDBId(tmdbId);
-    console.log(data);
-
+    const movieCreditsData = await getCastDetailsByTMDBId(tmdbId);
+console.log(movieCreditsData.cast)
     const movieData = {
       title,
       releaseYear: release_year,
@@ -29,8 +28,8 @@ class MovieService {
       .join(", ")
       ?.toLocaleLowerCase();
 
-    movieData.actors = actors
-      ?.map((actor) => actor.name)
+    movieData.actors = movieCreditsData?.cast
+      ?.map((movieCreditData) => movieCreditData.name)
       .join(", ")
       ?.toLocaleLowerCase();
     const movie = await MovieModel.create(movieData);
